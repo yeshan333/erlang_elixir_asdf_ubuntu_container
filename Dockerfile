@@ -55,8 +55,8 @@ RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git \
     && asdf install elixir ${ELIXIR_VER}
 RUN asdf global erlang ${ERLANG_VER} \
     && asdf global elixir ${ELIXIR_VER} \
-    && mix local.hex \
-    && mix local.rebar
+    && yes | mix local.hex \
+    && yes | mix local.rebar
 
 ENV ERLANG_VER24 24.1
 ENV ELIXIR_VER12 1.12.3
@@ -64,7 +64,7 @@ RUN asdf install erlang ${ERLANG_VER24} \
     && asdf install elixir ${ELIXIR_VER12}
 RUN asdf global erlang ${ERLANG_VER24} \
     && asdf global elixir ${ELIXIR_VER12} \
-    && mix local.hex \
-    && mix local.rebar
+    && yes | mix local.hex \
+    && yes | mix local.rebar
 
 RUN echo 'root:EnjoyLife' | chpasswd
