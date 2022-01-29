@@ -44,7 +44,6 @@ ENV CLASSPATH .:${JAVA_HOME}/jre/lib/rt.jar:${JAVA_HOME}/lib/dt.jar:${JAVA_HOME}
 ENV PATH $PATH:${JAVA_HOME}/bin
 
 # c++ 17 support
-
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y  \
     && apt-get update -y \
     && apt-get install gcc-9 g++-9 -y \
