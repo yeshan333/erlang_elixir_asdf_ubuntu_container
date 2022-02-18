@@ -21,7 +21,7 @@ be found at [https://hexdocs.pm/my_plug_app](https://hexdocs.pm/my_plug_app).
 
 # Plug Labs
 
-> Ref toturial:
+> Ref toturial: https://elixirschool.com/en/lessons/misc/plug
 
 ## Get Deps
 
