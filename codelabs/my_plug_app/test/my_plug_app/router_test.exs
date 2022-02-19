@@ -12,7 +12,7 @@ defmodule MyPlugApp.RouterTest do
   test "returns welcome" do
     conn =
       :get
-      |> conn("/", "")
+      |> conn("/welcome", "")
       |> Router.call(@opts)
     assert conn.state == :sent
     assert conn.status == 200
@@ -26,6 +26,38 @@ defmodule MyPlugApp.RouterTest do
 
     assert conn.state == :sent
     assert conn.status == 201
+  end
+
+  test "return hello yeshan" do
+    conn =
+      :get
+      |> conn("/hello/yeshan")
+      |> Router.call(@opts)
+    assert conn.state == :sent
+    assert conn.status == 200
+    assert conn.resp_body == "hello yeshan"
+  end
+
+  test "return hello Jams (query params)" do
+    conn =
+      :get
+      |> conn("/hello?name=Jams")
+      |> Router.call(@opts)
+    assert conn.state == :sent
+    assert conn.status == 200
+    assert conn.resp_body == "hello Jams"
+  end
+
+  test "return hello Jams (post json data)" do
+    request_body = %{"name" => "John"}
+
+    conn =
+      :post
+      |> conn("/hello", request_body)
+      |> Router.call(@opts)
+    assert conn.state == :sent
+    assert conn.status == 200
+    assert conn.resp_body == "\{\"id\":1,\"name\":\"John\"}"
   end
 
   test "returns 404" do

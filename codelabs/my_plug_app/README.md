@@ -21,12 +21,14 @@ be found at [https://hexdocs.pm/my_plug_app](https://hexdocs.pm/my_plug_app).
 
 # Plug Labs
 
-> Ref toturial: https://elixirschool.com/en/lessons/misc/plug
+> Ref toturial:
+> - https://elixirschool.com/en/lessons/misc/plug
+> - https://dev.to/mpevec9/understanding-elixir-plug-o77
 
 ## Get Deps
 
 ```shell
-HEX_CDN=https://cdn.jsdelivr.net/hex mix deps.get
+HEX_MIRROR=https://cdn.jsdelivr.net/hex mix deps.get
 ```
 
 ## Start Service
