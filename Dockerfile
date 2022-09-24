@@ -27,7 +27,10 @@ RUN apt-get install -y \
     unixodbc \
     unixodbc-dev \
     m4 \
-    default-jdk
+    default-jdk \
+    tzdata
+
+ENV DEBIAN_FRONTEND noninteractive
 
 # set timezone
 RUN echo "Asia/shanghai" > /etc/timezone \
