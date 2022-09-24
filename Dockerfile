@@ -7,7 +7,6 @@ RUN apt-get install -y \
     build-essential \
     apt-transport-https \
     unzip \
-    tzdata \
     sudo \
     locales \
     iputils-ping \
