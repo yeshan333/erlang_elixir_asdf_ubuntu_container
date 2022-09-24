@@ -29,6 +29,11 @@ RUN apt-get install -y \
     m4 \
     default-jdk
 
+# set timezone
+RUN echo "Asia/shanghai" > /etc/timezone \
+    && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && dpkg-reconfigure -f noninteractive tzdata
+
 RUN locale-gen en_US en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 ENV LANG=en_US.UTF-8
