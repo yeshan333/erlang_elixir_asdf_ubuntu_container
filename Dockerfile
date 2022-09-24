@@ -35,15 +35,6 @@ ENV LC_ALL=en_US.UTF-8
 ENV LANG=en_US.UTF-8
 ENV LANGUAGE=en_US.UTF-8
 
-# set timezone
-RUN echo "Asia/shanghai" > /etc/timezone \
-    && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && dpkg-reconfigure -f noninteractive tzdata
-
-ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk-amd64
-ENV CLASSPATH .:${JAVA_HOME}/jre/lib/rt.jar:${JAVA_HOME}/lib/dt.jar:${JAVA_HOME}/lib/tools.jar
-ENV PATH $PATH:${JAVA_HOME}/bin
-
 # c++ 17 support
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y  \
     && apt-get update -y \
