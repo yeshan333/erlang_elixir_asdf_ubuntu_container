@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y \
+RUN DEBIAN_FRONTEND=noninteractive TZ=Asia/Shanghai apt-get install -y \
     software-properties-common \
     build-essential \
     apt-transport-https \
@@ -29,11 +29,6 @@ RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y \
     m4 \
     default-jdk \
     tzdata
-
-# set timezone
-RUN echo "Asia/shanghai" > /etc/timezone \
-    && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && dpkg-reconfigure -f noninteractive tzdata
 
 RUN locale-gen en_US en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
