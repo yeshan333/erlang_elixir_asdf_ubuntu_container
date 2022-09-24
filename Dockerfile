@@ -1,6 +1,6 @@
-FROM ubuntu:16.04
+FROM ubuntu:20.04
 
-RUN apt-get update && apt-get upgrade
+RUN apt-get update && apt-get upgrade -y
 
 RUN apt-get install -y \
     software-properties-common \
@@ -24,10 +24,11 @@ RUN apt-get install -y \
     xsltproc \
     fop \
     libxml2-utils \
-    libwxgtk3.0-dev \
+    libwxgtk3.0-gtk3-dev \
     unixodbc \
     unixodbc-dev \
-    openjdk-8-jdk=8u292-b10-0ubuntu1~16.04.1
+    m4 \
+    default-jdk
 
 RUN locale-gen en_US en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
