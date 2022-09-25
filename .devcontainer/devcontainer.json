@@ -1,5 +1,10 @@
 {
   "image": "ghcr.io/yeshan333/erlang_elixir_asdf_ubuntu_container:latest",
-  "extensions": ["jakebecker.elixir-ls"],
-  "postCreateCommand": "git config --global core.fileMode false"
+  "extensions": ["jakebecker.elixir-ls", "WakaTime.vscode-wakatime"],
+  "postCreateCommand": "git config --global core.fileMode false",
+  "mounts": [
+    "source=/home/yeshan333/.ssh,target=/root/.ssh,type=bind,consistency=cached",
+    "source=/home/yeshan333/.wakatime.cfg,target=/root/.wakatime.cfg,type=bind,consistency=cached",
+    "source=/home/yeshan333/workspace/github,target=/root/github,type=bind,consistency=cached"
+  ]
 }
