@@ -66,7 +66,7 @@ RUN asdf global erlang ${ERLANG_VER24} \
     && yes | mix local.hex \
     && yes | mix local.rebar
 
-ENV ERLANG_VER25 25.4
+ENV ERLANG_VER25 25.1
 ENV ELIXIR_VER14 1.14.0
 RUN asdf install erlang ${ERLANG_VER25} \
     && asdf install elixir ${ELIXIR_VER14}
