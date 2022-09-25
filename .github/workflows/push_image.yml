@@ -5,6 +5,7 @@ on:
     branches:
       - 'main'
       - 'ubuntu2004'
+  workflow_dispatch:
 
 jobs:
   docker:
