@@ -66,4 +66,13 @@ RUN asdf global erlang ${ERLANG_VER24} \
     && yes | mix local.hex \
     && yes | mix local.rebar
 
+ENV ERLANG_VER25 25.4
+ENV ELIXIR_VER14 1.14.0
+RUN asdf install erlang ${ERLANG_VER25} \
+    && asdf install elixir ${ELIXIR_VER14}
+RUN asdf global erlang ${ERLANG_VER25} \
+    && asdf global elixir ${ELIXIR_VER14} \
+    && yes | mix local.hex \
+    && yes | mix local.rebar
+
 RUN echo 'root:EnjoyLife' | chpasswd
