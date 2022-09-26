@@ -72,4 +72,15 @@ RUN asdf global elixir ${ELIXIR_VER14} \
     && yes | mix local.hex \
     && yes | mix local.rebar
 
+RUN wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh \
+    && chmod +x /usr/local/bin/oh-my-posh
+RUN mkdir ~/.poshthemes \
+    && wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O ~/.poshthemes/themes.zip \
+    && unzip ~/.poshthemes/themes.zip -d ~/.poshthemes \
+    && chmod u+rw ~/.poshthemes/*.omp.* \
+    && rm ~/.poshthemes/themes.zip
+RUN echo 'eval "$(oh-my-posh init bash --config /root/.poshthemes/lambdageneration.omp.json)"' >> /root/.bashrc
+
+# Remember install fonts
+# oh-my-posh font install
 RUN echo 'root:EnjoyLife' | chpasswd
