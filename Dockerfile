@@ -27,7 +27,8 @@ RUN apt-get install -y \
     libwxgtk3.0-dev \
     unixodbc \
     unixodbc-dev \
-    openjdk-8-jdk=8u292-b10-0ubuntu1~16.04.1
+    openjdk-8-jdk=8u292-b10-0ubuntu1~16.04.1 \
+    net-tools
 
 RUN locale-gen en_US en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
