@@ -60,10 +60,10 @@ RUN asdf global erlang ${ERLANG_VER} \
 
 ENV ERLANG_VER26 26.2.1
 ENV ELIXIR_VER16 1.16.1
-RUN asdf install erlang ${ERLANG_VER24} \
-    && asdf install elixir ${ELIXIR_VER12}
-RUN asdf global erlang ${ERLANG_VER24} \
-    && asdf global elixir ${ELIXIR_VER12} \
+RUN asdf install erlang ${ERLANG_VER26} \
+    && asdf install elixir ${ELIXIR_VER16}
+RUN asdf global erlang ${ERLANG_VER26} \
+    && asdf global elixir ${ELIXIR_VER16} \
     && yes | mix local.hex \
     && yes | mix local.rebar
 
