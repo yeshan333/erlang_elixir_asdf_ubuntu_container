@@ -19,3 +19,4 @@ Here are some related projects.
 - [asdf-erlang](https://github.com/asdf-vm/asdf-erlang) - Erlang plugin for asdf version manager.
 - [asdf-elixir](https://github.com/asdf-vm/asdf-elixir) - Elixir plugin for asdf version manager.
 - [readme.so](https://readme.so/editor) - The easiest way to create a README.
+- [compatibility-between-elixir-and-erlang-otp](https://hexdocs.pm/elixir/compatibility-and-deprecations.html#compatibility-between-elixir-and-erlang-otp)

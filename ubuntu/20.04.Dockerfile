@@ -44,9 +44,9 @@ RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y  \
 
 ENV ADSF_DIR /root/.asdf
 ENV PATH $PATH:${ADSF_DIR}/bin:${ADSF_DIR}/shims
-ENV ERLANG_VER 23.1.1
-ENV ELIXIR_VER v1.10.4
-RUN git clone https://github.com/asdf-vm/asdf.git ${ADSF_DIR} --branch v0.5.1 \
+ENV ERLANG_VER 24.1
+ENV ELIXIR_VER 1.12.3
+RUN git clone https://github.com/asdf-vm/asdf.git ${ADSF_DIR} --branch v0.14.0 \
     && echo '. ${ADSF_DIR}/asdf.sh' >> /root/.bashrc \
     && echo '. ${ADSF_DIR}/completions/asdf.bash' >> /root/.bashrc
 RUN asdf plugin-add erlang https://github.com/yeshan333/asdf-erlang.git \
@@ -58,18 +58,12 @@ RUN asdf global erlang ${ERLANG_VER} \
     && yes | mix local.hex \
     && yes | mix local.rebar
 
-ENV ERLANG_VER24 24.1
-ENV ELIXIR_VER12 1.12.3
+ENV ERLANG_VER26 26.2.1
+ENV ELIXIR_VER16 1.16.1
 RUN asdf install erlang ${ERLANG_VER24} \
     && asdf install elixir ${ELIXIR_VER12}
 RUN asdf global erlang ${ERLANG_VER24} \
     && asdf global elixir ${ELIXIR_VER12} \
-    && yes | mix local.hex \
-    && yes | mix local.rebar
-
-ENV ELIXIR_VER14 1.14.0
-RUN asdf install elixir ${ELIXIR_VER14}
-RUN asdf global elixir ${ELIXIR_VER14} \
     && yes | mix local.hex \
     && yes | mix local.rebar
 
