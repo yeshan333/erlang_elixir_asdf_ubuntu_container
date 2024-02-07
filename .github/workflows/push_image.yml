@@ -1,6 +1,7 @@
 name: build image and push image to dockerhub & ghcr.io
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - 'main'
@@ -32,12 +33,49 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GHCR_TOKEN }}
       -
-        name: Build and push
+        name: Build and push latest
         uses: docker/build-push-action@v3
         with:
+          file: ubuntu/22.04.Dockerfile
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu:latest
             ghcr.io/${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu_container:latest
+
+      -
+        name: Build and push Ubuntu 16.04 image
+        uses: docker/build-push-action@v3
+        with:
+          file: ubuntu/16.04.Dockerfile
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu:ubuntu1604
+            ghcr.io/${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu_container:ubuntu1604
+
+      -
+        name: Build and push Ubuntu 20.04 image
+        uses: docker/build-push-action@v3
+        with:
+          file: ubuntu/20.04.Dockerfile
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu:ubuntu2004
+            ghcr.io/${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu_container:ubuntu2004
+
+      -
+        name: Build and push Ubuntu 22.04 image
+        uses: docker/build-push-action@v3
+        with:
+          file: ubuntu/22.04.Dockerfile
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu:ubuntu2204
+            ghcr.io/${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu_container:ubuntu2204
