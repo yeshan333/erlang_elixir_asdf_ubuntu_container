@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update -y && apt-get upgrade -y
 
 RUN DEBIAN_FRONTEND=noninteractive TZ=Asia/Shanghai apt-get install -y \
     software-properties-common \
