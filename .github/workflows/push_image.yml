@@ -7,7 +7,7 @@ on:
       - 'main'
 
 jobs:
-  docker:
+  docker_ubuntu_2204:
     runs-on: ubuntu-latest
     steps:
       -
@@ -44,6 +44,32 @@ jobs:
             ${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu:latest
             ghcr.io/${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu_container:latest
 
+  docker_ubuntu_1604:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v4
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      -
+        name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GHCR_TOKEN }}
+
       -
         name: Build and push Ubuntu 16.04 image
         uses: docker/build-push-action@v5.1.0
@@ -56,6 +82,32 @@ jobs:
             ${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu:ubuntu1604
             ghcr.io/${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu_container:ubuntu1604
 
+  docker_ubuntu_2004:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v4
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      -
+        name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GHCR_TOKEN }}
+
       -
         name: Build and push Ubuntu 20.04 image
         uses: docker/build-push-action@v5.1.0
@@ -67,15 +119,3 @@ jobs:
           tags: |
             ${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu:ubuntu2004
             ghcr.io/${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu_container:ubuntu2004
-
-      -
-        name: Build and push Ubuntu 22.04 image
-        uses: docker/build-push-action@v5.1.0
-        with:
-          file: ubuntu/22.04.Dockerfile
-          context: .
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: |
-            ${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu:ubuntu2204
-            ghcr.io/${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu_container:ubuntu2204
