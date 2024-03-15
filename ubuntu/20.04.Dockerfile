@@ -50,7 +50,7 @@ ENV KERL_BUILD_DOCS yes
 RUN git clone https://github.com/asdf-vm/asdf.git ${ADSF_DIR} --branch v0.14.0 \
     && echo '. ${ADSF_DIR}/asdf.sh' >> /root/.bashrc \
     && echo '. ${ADSF_DIR}/completions/asdf.bash' >> /root/.bashrc
-RUN asdf plugin-add erlang https://github.com/yeshan333/asdf-erlang.git \
+RUN asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git \
     && asdf install erlang ${ERLANG_VER}
 RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git \
     && asdf install elixir ${ELIXIR_VER}
