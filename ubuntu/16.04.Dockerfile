@@ -54,6 +54,7 @@ ENV ADSF_DIR /root/.asdf
 ENV PATH $PATH:${ADSF_DIR}/bin:${ADSF_DIR}/shims
 ENV ERLANG_VER 23.1.1
 ENV ELIXIR_VER v1.10.4
+ENV KERL_BUILD_DOCS yes
 RUN git clone https://github.com/asdf-vm/asdf.git ${ADSF_DIR} --branch v0.14.0 \
     && echo '. ${ADSF_DIR}/asdf.sh' >> ~/.bashrc \
     && echo '. ${ADSF_DIR}/completions/asdf.bash' >> ~/.bashrc
