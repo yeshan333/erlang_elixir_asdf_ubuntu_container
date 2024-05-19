@@ -47,6 +47,7 @@ ENV PATH $PATH:${ADSF_DIR}/bin:${ADSF_DIR}/shims
 ENV ERLANG_VER 26.2.1
 ENV ELIXIR_VER 1.16.1
 ENV KERL_BUILD_DOCS yes
+ENV MAKEFLAGS -j8
 RUN git clone https://github.com/asdf-vm/asdf.git ${ADSF_DIR} --branch v0.14.0 \
     && echo '. ${ADSF_DIR}/asdf.sh' >> /root/.bashrc \
     && echo '. ${ADSF_DIR}/completions/asdf.bash' >> /root/.bashrc
@@ -67,7 +68,7 @@ RUN mkdir /root/.poshthemes \
     && unzip /root/.poshthemes/themes.zip -d /root/.poshthemes \
     && chmod u+rw /root/.poshthemes/*.omp.* \
     && rm /root/.poshthemes/themes.zip
-RUN echo 'eval "$(oh-my-posh init bash --config /root/.poshthemes/lambdageneration.omp.json)"' >> /root/.bashrc
+RUN echo 'eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/emodipt-extend.omp.json)"' >> /root/.bashrc
 
 # Remember install fonts
 # oh-my-posh font install
