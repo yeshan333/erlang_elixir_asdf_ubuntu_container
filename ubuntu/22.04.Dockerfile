@@ -72,4 +72,8 @@ RUN echo 'eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/emodipt-
 
 # Remember install fonts
 # oh-my-posh font install
+RUN cd /tmp \
+    && git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1 \
+    && cd nerd-fonts \
+    && ./install.sh
 RUN echo 'root:EnjoyLife' | chpasswd
