@@ -84,5 +84,5 @@ RUN echo 'eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/emodipt-
 RUN cd /tmp \
     && git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1 \
     && cd nerd-fonts \
-    && ./install.sh
+    && ./install.sh Meslo
 RUN echo 'root:EnjoyLife' | chpasswd
