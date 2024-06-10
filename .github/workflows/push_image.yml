@@ -43,8 +43,6 @@ jobs:
           tags: |
             ${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu:latest
             ghcr.io/${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu_container:latest
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
 
   docker_ubuntu_1604:
     runs-on: ubuntu-latest
@@ -83,8 +81,6 @@ jobs:
           tags: |
             ${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu:ubuntu1604
             ghcr.io/${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu_container:ubuntu1604
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
 
   docker_ubuntu_2004:
     runs-on: ubuntu-latest
@@ -123,5 +119,3 @@ jobs:
           tags: |
             ${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu:ubuntu2004
             ghcr.io/${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu_container:ubuntu2004
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
