@@ -28,7 +28,8 @@ RUN apt-get install -y \
     unixodbc \
     unixodbc-dev \
     openjdk-8-jdk=8u292-b10-0ubuntu1~16.04.1 \
-    net-tools
+    net-tools \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN locale-gen en_US en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
@@ -48,7 +49,8 @@ ENV PATH $PATH:${JAVA_HOME}/bin
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y  \
     && apt-get update -y \
     && apt-get install gcc-9 g++-9 -y \
-    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-9
+    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-9 \
+    && rm -rf /var/lib/apt/lists/*
 
 ENV ADSF_DIR /root/.asdf
 ENV PATH $PATH:${ADSF_DIR}/bin:${ADSF_DIR}/shims
