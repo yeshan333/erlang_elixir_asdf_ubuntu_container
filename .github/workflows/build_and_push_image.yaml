@@ -7,7 +7,7 @@ on:
       - "main"
 
 jobs:
-  docker_ubuntu_2004:
+  docker_ubuntu_images:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,7 +29,7 @@ jobs:
           password: ${{ secrets.GHCR_TOKEN }}
       - name: Reduce disk usage
         run: |
-          bash release_disk.sh
+          bash .github/workflows/release_disk.sh
       - name: Build and push ubuntu 20.04 image
         uses: docker/build-push-action@v5.4.0
         with:
@@ -42,10 +42,10 @@ jobs:
             ghcr.io/${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu_container:ubuntu2004
       - name: Release disk usage
         run: |
-          bash release_disk.sh
+          bash .github/workflows/release_disk.sh
       - name: Reduce latest build disk usage
         run: |
-          bash release_disk.sh
+          bash .github/workflows/release_disk.sh
       - name: Build and push ubuntu 16.04 image
         uses: docker/build-push-action@v5.4.0
         with:
@@ -58,7 +58,7 @@ jobs:
               ghcr.io/${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu_container:ubuntu1604
       - name: Release latest disk usage
         run: |
-          bash release_disk.sh
+          bash .github/workflows/release_disk.sh
       - name: Build and push ubuntu 22.04 image
         uses: docker/build-push-action@v5.4.0
         with:
@@ -71,4 +71,4 @@ jobs:
               ghcr.io/${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu_container:latest
       - name: Release latest disk usage
         run: |
-          bash release_disk.sh
+          bash .github/workflows/release_disk.sh
