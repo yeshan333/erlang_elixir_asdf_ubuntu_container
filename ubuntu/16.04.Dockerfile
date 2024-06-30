@@ -79,4 +79,4 @@ RUN asdf global erlang ${ERLANG_VER24} \
     && yes | mix local.hex \
     && yes | mix local.rebar
 
-RUN echo 'root:EnjoyLife' | chpasswd
+# RUN echo 'root:EnjoyLife' | chpasswd

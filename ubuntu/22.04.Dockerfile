@@ -61,21 +61,3 @@ RUN asdf global erlang ${ERLANG_VER} \
     && asdf global elixir ${ELIXIR_VER} \
     && yes | mix local.hex \
     && yes | mix local.rebar
-
-# beautify terminal
-RUN wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh \
-    && chmod +x /usr/local/bin/oh-my-posh
-RUN mkdir /root/.poshthemes \
-    && wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O /root/.poshthemes/themes.zip \
-    && unzip /root/.poshthemes/themes.zip -d /root/.poshthemes \
-    && chmod u+rw /root/.poshthemes/*.omp.* \
-    && rm /root/.poshthemes/themes.zip
-RUN echo 'eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/emodipt-extend.omp.json)"' >> /root/.bashrc
-
-# Remember install fonts
-# oh-my-posh font install
-RUN cd /tmp \
-    && git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1 \
-    && cd nerd-fonts \
-    && ./install.sh Meslo
-RUN echo 'root:EnjoyLife' | chpasswd
