@@ -35,7 +35,7 @@ jobs:
         with:
           file: ubuntu/20.04.Dockerfile
           context: .
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           push: true
           tags: |
             ${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu:ubuntu2004
@@ -51,7 +51,7 @@ jobs:
         with:
             file: ubuntu/16.04.Dockerfile
             context: .
-            platforms: linux/amd64,linux/arm64
+            platforms: linux/amd64
             push: true
             tags: |
               ${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu:ubuntu1604
@@ -64,7 +64,7 @@ jobs:
         with:
             file: ubuntu/22.04.Dockerfile
             context: .
-            platforms: linux/amd64,linux/arm64
+            platforms: linux/amd64
             push: true
             tags: |
               ${{ github.repository_owner }}/erlang_elixir_asdf_ubuntu:latest
