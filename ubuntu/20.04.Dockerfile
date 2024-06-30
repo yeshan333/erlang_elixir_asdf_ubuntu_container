@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-RUN DEBIAN_FRONTEND noninteractive TZ Asia/Shanghai apt-get update -y && apt-get upgrade -y \
+RUN DEBIAN_FRONTEND=noninteractive TZ=Asia/Shanghai apt-get update -y && apt-get upgrade -y \
     && apt-get install -y \
         software-properties-common \
         build-essential \
