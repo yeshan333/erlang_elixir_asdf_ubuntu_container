@@ -24,8 +24,8 @@ RUN apt-get update -y && apt-get upgrade -y \
         xsltproc \
         fop \
         libxml2-utils \
-        libwxgtk3.2-gtk3-dev \
-        libwxgtk-webview3.2-gtk3-dev \
+        libwxgtk3.0-gtk3-dev \
+        libwxgtk-webview3.0-gtk3-dev \
         unixodbc \
         unixodbc-dev \
         m4 \
