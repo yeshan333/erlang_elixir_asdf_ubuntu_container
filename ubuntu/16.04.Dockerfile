@@ -1,5 +1,7 @@
 FROM ubuntu:16.04
 
+ENV DEBIAN_FRONTEND noninteractive 
+ENV TZ Asia/Shanghai
 RUN apt-get update -y && apt-get upgrade -y \
     && apt-get install -y \
         software-properties-common \

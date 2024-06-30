@@ -1,6 +1,8 @@
 FROM ubuntu:22.04
 
-RUN DEBIAN_FRONTEND=noninteractive TZ=Asia/Shanghai apt-get update -y && apt-get upgrade -y \ 
+ENV DEBIAN_FRONTEND noninteractive 
+ENV TZ Asia/Shanghai
+RUN apt-get update -y && apt-get upgrade -y \ 
     && apt-get install -y \
         software-properties-common \
         build-essential \
